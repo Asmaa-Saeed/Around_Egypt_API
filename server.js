@@ -11,6 +11,7 @@ const dbConnection = require('./config/database');
 const userRoute = require('./Routes/userRoute');
 const authRoute = require("./Routes/authRoute");
 const CategoryRoutes = require('./Routes/CategoryRoute');
+const subCategoryRoute = require('./Routes/subCategoryRoute');
 const BookingRoutes = require("./Routes/bookingRoutes");
 const CityRoutes = require('./Routes/SearchRoutes');
 
@@ -32,11 +33,12 @@ if (process.env.NODE_ENV === 'development') {
 app.use('/api/v1/users', userRoute);
 app.use('/api/v1/auth', authRoute);
 app.use('/api/v1/categories', CategoryRoutes);
+app.use('/api/v1/subCategory', subCategoryRoute);
 app.use("/api/bookings", BookingRoutes);
 app.use("/api/city", CityRoutes);
 
 
-const PORT = process.env.PORT || 8001;
+const PORT = process.env.PORT || 8003;
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}`);
 });
